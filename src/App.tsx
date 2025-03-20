@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import ExerciseCard from './components/ExerciseCard';
+import ExerciseCard from './components/Exercise';
 import { API } from './config/env';
 
-export interface IExercises {
+export interface IExercisesResponse {
   category: string;
   image: string;
   name: string;
@@ -12,9 +12,8 @@ export interface IExercises {
 }
 
 const App = () => {
-  const [exercises, setExercises] = useState<IExercises[]>([]);
+  const [exercises, setExercises] = useState<IExercisesResponse[]>([]);
 
-  console.log(exercises);
   const getExercises = async () => {
     try {
       const response = await axios.get(`${API}/exercises`);
@@ -31,9 +30,7 @@ const App = () => {
 
   return (
     <div>
-      {exercises.map((exercise, index) => (
-        <ExerciseCard key={index} exercise={exercise} />
-      ))}
+      <ExerciseCard exercises={exercises || []} />
     </div>
   );
 };

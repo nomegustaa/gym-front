@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  margin: 10px auto;
-  max-width: 400px;
-  text-align: center;
+export const ContainerExercises = styled.div`
+  margin: 20px;
+  display: flex;
+  gap: 3rem;
+
+  @media screen and (max-width: 1000px) {
+    justify-content: center;
+    gap: 0;
+  }
 `;
 
 export const Image = styled.img`
