@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ExerciseCard from './components/ExerciseCard';
+import { API } from './config/env';
 
 export interface IExercises {
   category: string;
@@ -16,9 +17,7 @@ const App = () => {
   console.log(exercises);
   const getExercises = async () => {
     try {
-      const response = await axios.get(
-        'https://web-scraper-omega.vercel.app/exercises',
-      );
+      const response = await axios.get(`${API}/exercises`);
 
       setExercises(response.data);
     } catch (e) {
